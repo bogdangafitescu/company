@@ -1,0 +1,17 @@
+<div class="jumbotron text-center">
+    <h4>Salarii</h4>
+</div>
+<div class="container">
+    <form name="payoff_form" class="row">
+        <div class="form-group col-md-2">
+            <label class="control-label">Salariu brut:</label>
+            <input class="form-control" ng-model="payoff.gross" placeholder="Introdu suma" required
+                   type="number" string-to-number step="0.01" min="0" ng-change="computeNet()"/>
+        </div>
+        <div class="form-group col-md-2">
+            <label class="control-label">Salariu net:</label>
+            <input class="form-control" ng-model="payoff.net" placeholder="Introdu suma" required
+                   type="number" string-to-number step="0.01" min="0"/>
+        </div>
+    </form>
+</div>

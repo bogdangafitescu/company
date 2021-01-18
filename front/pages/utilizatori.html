@@ -1,0 +1,52 @@
+<div class="jumbotron text-center">
+    <h4>Utilizatori</h4>
+</div>
+<div class="container">
+    <form class="form-horizontal col-md-8">
+        <div class="form-group">
+            <label class="control-label col-sm-2">Utilizator:</label>
+            <div class="col-sm-4">
+                <input class="form-control" ng-model="user.name" placeholder="Introdu utilizator" required=""
+                       type="text"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Parola:</label>
+            <div class="col-sm-4">
+                <input class="form-control" ng-model="user.pass" placeholder="Introdu parola" required=""
+                       type="text"/>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <button class="btn btn-primary" ng-click="saveUser()">Salveaza</button>
+            <button class="btn btn-default" ng-click="clearForm()">Goleste Form</button>
+        </div>
+    </form>
+
+
+    <p></p>
+
+    <div class="col-md-10" ng-show="users">
+        <br/>
+        <br/>
+        <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+                <th>Nume</th>
+                <th>Parola</th>
+                <th width="20%">Actiuni</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users">
+                <td ng-bind="user.name "></td>
+                <td ng-bind="user.pass "></td>
+                <td>
+                    <button class="btn btn-primary" ng-click="editUser(user)">Editeaza</button>
+                    <button class="btn btn-danger" ng-click="removeUser(user)">Sterge</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

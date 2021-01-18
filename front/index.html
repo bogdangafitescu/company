@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+    <head>
+        <!-- SCROLLS -->
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+
+        <!-- SPELLS -->
+        <!-- load angular and angular route via CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular-route.js"></script>
+        <script src="script.js"></script>
+        <script src="controllers/utilizatoriController.js"></script>
+        <script src="controllers/birouriController.js"></script>
+        <script src="controllers/departamenteController.js"></script>
+        <script src="controllers/salariatiController.js"></script>
+        <script src="controllers/salariiController.js"></script>
+        <base href="/" />
+    </head>
+    <body ng-controller="mainController">
+
+        <!-- HEADER AND NAVBAR -->
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Compania X</a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="utilizatori"><i class="fa fa-user-plus"></i> Utilizatori</a></li>
+                        <li><a href="birouri"><i class="fa fa-building-o"></i> Birouri</a></li>
+                        <li><a href="departamente"><i class="fa fa-shield"></i> Departamente</a></li>
+                        <li><a href="salariati"><i class="fa fa-users"></i> Salariati</a></li>
+                        <li><a href="salarii"><i class="fa fa-money"></i> Salarii</a></li>
+                        <li>&nbsp; <i class="fa fa-ellipsis-v"></i> &nbsp;</li>
+                        <li><a href="login"><i class="fa fa-user"></i> Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        <div id="main">
+            <div ng-view></div>
+        </div>
+
+    </body>
+</html>

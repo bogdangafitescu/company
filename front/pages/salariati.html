@@ -1,0 +1,79 @@
+<div class="jumbotron text-center">
+    <h4>Salariati</h4>
+</div>
+<div class="container">
+    <form name="employees_form" ng-submit="saveEmployee()" class="row">
+        <div class="form-group col-md-8">
+            <label class="control-label">Nume:</label>
+            <input class="form-control" ng-model="employee.first_name" placeholder="Introdu nume salariat" required
+                   type="text"/>
+        </div>
+        <div class="form-group col-md-8">
+            <label class="control-label">Prenume:</label>
+            <input class="form-control" ng-model="employee.last_name" placeholder="Introdu prenume salariat" required
+                   type="text"/>
+        </div>
+        <div class="form-group col-md-8">
+            <label class="control-label">Email:</label>
+            <input class="form-control" ng-model="employee.email" placeholder="Introdu adresa de email" required
+                   type="email"/>
+        </div>
+        <div class="form-group col-md-8">
+            <label class="control-label">Data nasterii:</label>
+            <input class="form-control" ng-model="employee.birth_date" type="date" required/>
+        </div>
+        <div class="form-group col-md-8">
+            <label class="control-label">Departament:</label>
+            <select class="form-control" ng-model="dept" ng-change="deptChanged()"
+                    ng-options="d as d.name for d in depts track by d.did" required>
+            </select>
+        </div>
+        <div class="form-group col-md-8">
+            <label class="control-label">Birou:</label>
+            <select class="form-control" ng-model="offc" ng-options="o as o.name for o in offs track by o.oid" required>
+            </select>
+        </div>
+        <div class="form-group col-md-8">
+            <label>Is manager &nbsp; </label>
+            <input type="checkbox" id="is_manager" ng-model="employee.is_manager" name="is_manager">
+        </div>
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-primary">Salveaza</button>
+            <span class="text-danger">{{ error }}</span>
+        </div>
+    </form>
+    <p></p>
+    <div class="row">
+        <div class="col-md-12" ng-show="employees">
+            <br/>
+            <br/>
+            <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                <tr>
+                    <th>Nume</th>
+                    <th>Email</th>
+                    <th>Data nasterii(m/d/y)</th>
+                    <th>Departament</th>
+                    <th>Birou</th>
+                    <th>Manager</th>
+                    <th width="15%">Actiuni</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td><span ng-bind="employee.first_name"></span> <span ng-bind="employee.last_name"></span></td>
+                    <td ng-bind="employee.email"></td>
+                    <td ng-bind="employee.birth_date"></td>
+                    <td ng-bind="employee.department"></td>
+                    <td ng-bind="employee.office"></td>
+                    <td>{{employee.is_manager ? 'da' : 'nu'}}</td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="editEmployee(employee)">Editeaza</button>
+                        <button class="btn btn-danger" ng-click="removeEmployee(employee)">Sterge</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

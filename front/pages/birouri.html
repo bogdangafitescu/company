@@ -1,0 +1,40 @@
+<div class="jumbotron text-center">
+    <h4>Birouri</h4>
+</div>
+<div class="container">
+    <form>
+        <div class="form-group col-md-8">
+            <label class="control-label">Nume:</label>
+            <input class="form-control" ng-model="office.name" placeholder="Introdu nume birou" required=""
+                   type="text"/>
+        </div>
+        <div class="col-md-8">
+            <button class="btn btn-primary" ng-click="saveOffice()">Salveaza</button>
+            <span class="text-danger">{{ error }}</span>
+        </div>
+    </form>
+
+    <p></p>
+
+    <div class="col-md-10" ng-show="offices">
+        <br/>
+        <br/>
+        <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+                <th>Nume</th>
+                <th width="20%">Actiuni</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="office in offices">
+                <td ng-bind="office.name "></td>
+                <td>
+                    <button class="btn btn-primary" ng-click="editOffice(office)">Editeaza</button>
+                    <button class="btn btn-danger" ng-click="removeOffice(office)">Sterge</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
